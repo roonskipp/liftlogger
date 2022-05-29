@@ -36,7 +36,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ${{ sercrets.AZURE_RG }}
+          resourceGroupName: ${{ sercrets.AZURE_RESOURCE_GROUP }}
           template: ./main.bicep
           # replace this with any parameters I want in my deploy file
           # parameters: storagePrefix=liftlogger
