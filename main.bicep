@@ -6,7 +6,7 @@ resource sqlServer 'Microsoft.Sql/servers@2021-11-01-preview' = {
   name: 'liftlogger-sql-server'
   location: location
   properties: {
-    administratorLogin: ${serverAdminLogin}
-    administratorLoginPassword: ${serverPassword}
+    administratorLogin: serverAdminLogin
+    administratorLoginPassword: serverPassword
   }
 }
