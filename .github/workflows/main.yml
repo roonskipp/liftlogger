@@ -37,7 +37,7 @@ jobs:
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RESOURCE_GROUP }}
-          template: ./main.bicep
+          template: ./bicep/main.bicep
           # replace this with any parameters I want in my deploy file
           parameters: serverAdminLogin=${{ secrets.SQL_ADMIN_USERNAME }}, serverPassword=${{ secrets.SQL_ADMIN_PASSWORD }}
           failOnStdErr: false
