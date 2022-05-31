@@ -1,6 +1,6 @@
 param serverAdminLogin string
 param serverPassword string
-param location = resourceGroup().location
+param location string = resourceGroup().location
 
 resource sqlServer 'Microsoft.Sql/servers@2021-11-01-preview' = {
   name: 'liftlogger-sql-server'
