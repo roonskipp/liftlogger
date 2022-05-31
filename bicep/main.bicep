@@ -4,7 +4,7 @@ param location string = 'eastus'
 param rgName
 
 resource rg 'Microsoft.Resources/resourceGroups@2021-01-01' = {
-  name: 'liftlogger-test-rg'
+  name: rgName
   location: location
 }
 
