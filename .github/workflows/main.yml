@@ -34,12 +34,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Create RG
-        uses: actions/checkout@v2
-      - run: |
-          ./azureRgScript.ps1 $RG_NAME eastus
-        shell: pwsh
-
       # Deploy Bicep file
       - name: deploy
         uses: azure/arm-deploy@v1
