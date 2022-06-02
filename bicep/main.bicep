@@ -9,7 +9,7 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   location: location
 }
 
-module sql '.sql.bicep' = {
+module sql 'sql.bicep' = {
   name: 'SQL_Deploy'
   scope: subscription(subscriptionId)
   params: {
