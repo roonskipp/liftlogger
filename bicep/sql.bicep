@@ -1,10 +1,11 @@
 param serverAdminLogin string
 param serverPassword string
 param location string
+param serverName string = 'liftlogger-sql-server'
 
 
 resource sqlServer 'Microsoft.Sql/servers@2021-11-01-preview' = {
-  name: 'liftlogger-sql-server'
+  name: serverName
   location: location
   properties: {
     administratorLogin: serverAdminLogin
@@ -14,7 +15,7 @@ resource sqlServer 'Microsoft.Sql/servers@2021-11-01-preview' = {
 
 resource sqlDB 'Microsoft.Sql/servers/databases@2021-11-01-preview' = {
   location: location
-  name: 'Liftlogger/liftloggerDb'
+  name:  '${serverName}/liftloggerDb'
   sku:{
     tier: 'Standard'
     name: 'S0'
