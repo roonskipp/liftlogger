@@ -39,5 +39,5 @@ jobs:
           resourceGroupName: ${{ secrets.AZURE_RESOURCE_GROUP }}
           template: ./bicep/main.bicep
           # replace this with any parameters I want in my deploy file
-          parameters: serverAdminLogin=${{ secrets.SQL_ADMIN_USERNAME }}, serverPassword=${{ secrets.SQL_ADMIN_PASSWORD }}, rgName="liftlogger-test-rg", subscriptionId=${{ secrets.AZURE_SUBSCRIPTION }}
+          parameters: serverAdminLogin=${{ secrets.SQL_ADMIN_USERNAME }}, serverPassword=${{ secrets.SQL_ADMIN_PASSWORD }}, rgName="liftlogger-test-rg"
           failOnStdErr: false

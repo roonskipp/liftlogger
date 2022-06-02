@@ -2,7 +2,8 @@ param serverAdminLogin string
 param serverPassword string
 param location string = 'eastus'
 param rgName string
-param subscriptionId string
+
+targetScope = 'subscription'
 
 resource rg 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   name: rgName
@@ -11,9 +12,10 @@ resource rg 'Microsoft.Resources/resourceGroups@2021-01-01' = {
 
 module sql 'sql.bicep' = {
   name: 'SQL_Deploy'
-  scope: subscription(subscriptionId)
+  scope: resourceGroup(rgName)
   params: {
-    administratorLogin: serverAdminLogin
-    administratorLoginPassword: serverPassword
+    location: location
+    serverAdminLogin: serverAdminLogin
+    serverPassword: serverPassword
   }
 }
