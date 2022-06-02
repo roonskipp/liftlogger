@@ -37,7 +37,7 @@ jobs:
       - name: Create RG
         uses: actions/checkout@v2
       - run: |
-          .azureRgScript.ps1 $RG_NAME eastus
+          ./azureRgScript.ps1 $RG_NAME eastus
         shell: pwsh
 
       # Deploy Bicep file
