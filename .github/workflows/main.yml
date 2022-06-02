@@ -1,6 +1,5 @@
-variables:
-- name: rgName
-  value: liftlogger-test-rg
+env:
+  RG_NAME: liftlogger-test-rg
 
 # This is a basic workflow to help you get started with Actions
 
@@ -38,7 +37,7 @@ jobs:
       - name: Create RG
         uses: actions/checkout@v2
       - run: |
-          .azureRgScript.ps1 $(rgName) eastus
+          .azureRgScript.ps1 $RG_NAME eastus
         shell: pwsh
 
       # Deploy Bicep file
@@ -49,5 +48,5 @@ jobs:
           resourceGroupName: ${{ secrets.AZURE_RESOURCE_GROUP }}
           template: ./bicep/main.bicep
           # replace this with any parameters I want in my deploy file
-          parameters: serverAdminLogin=${{ secrets.SQL_ADMIN_USERNAME }}, serverPassword=${{ secrets.SQL_ADMIN_PASSWORD }}, rgName=$(rgName)
+          parameters: serverAdminLogin=${{ secrets.SQL_ADMIN_USERNAME }}, serverPassword=${{ secrets.SQL_ADMIN_PASSWORD }}, rgName=$RG_NAME
           failOnStdErr: false
